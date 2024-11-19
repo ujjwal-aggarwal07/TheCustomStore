@@ -2,22 +2,37 @@ import './App.css';
 import LandingPage from './Component/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Component/NavBar';
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import EditingPage from './Component/EditingPage';
 import Login from './Component/Login';
-
+import { BrowserRouter as Router, Routes, Route, createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 function App() {
-
-  const [type,setType] = useState(null);
+  const router = createBrowserRouter([
+    {
+      element: <><NavBar/><Outlet/></>,
+      children:[
+        {
+          path: "/",
+          element: <LandingPage/>,
+        },
+        {
+          path: "/login",
+          element: <Login/>
+        },
+        {
+          path: "/shirt",
+          element: <EditingPage type="shirt"/>
+        },
+        {
+          path: "/mug",
+          element: <EditingPage type="mug"/>
+      }]
+    }
+  ]);
   return (
  <>
- <Login/>
- <NavBar handleLogoClick={setType}/>
- {type == null && <LandingPage handleClick={setType}/>}
- {type === "shirt" && <EditingPage type="shirt"/>}
- {type === "mug" && <EditingPage type="mug"/>}
-
+ <RouterProvider router={router}/>
  </>
   );
 }

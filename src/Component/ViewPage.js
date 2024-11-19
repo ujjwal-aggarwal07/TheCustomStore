@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 
 export default function ViewPage(props) 
 {
@@ -14,33 +14,16 @@ export default function ViewPage(props)
   return (
     <>
     
-    <Container>
-       <Row>
-      <img style={{height: "auto",width: "520px"}} src={img} alt="shirt" />
+    <Container className="mb-3">
+      <Row className="mb-3">
+        <img style={{height: "400px",width: "520px"}} src={img} alt="shirt" />
       </Row>
-      <br/>
-      <br/>
-      <Row >
-        <Col>
-      <button  style={{
-          color:"white",
-          borderColor:"#008B8B",
-          marginLeft: "20px",
-          borderRadius: "12px",
-          backgroundColor: "#008B8B",
-          padding:"0px 30px"}}> 
-        SAVE
-       </button>
+      <Row>
+      <Col className="w-100">
+        <Button className="imageAction">Save</Button>
        </Col>
-       <Col>
-       <button  style={{
-          color:"white",
-          borderColor:"#008B8B",
-          marginLeft: "20px",
-          borderRadius: "12px",
-          backgroundColor: "#008B8B",
-          padding:"0px 30px"}}> 
-        GET A QUOTE      </button>
+       <Col className="w-100">
+        <Button className="imageAction">Get Quote</Button>
         </Col>
         </Row>
     </Container>
