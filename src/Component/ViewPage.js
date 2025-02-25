@@ -9,7 +9,7 @@ export default function ViewPage(props)
   }
   else
   {
-     img="./assests/tshirt_"+props.color+".png";
+     img="./assests/Tshirt_"+props.color+".png";
   }
   return (
     <>
